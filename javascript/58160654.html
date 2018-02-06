@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homework02_week04</title>
+</head>
+<body>
+    <script type="text/javascript">
+    function search(){
+        var text = document.getElementById("textarea").value;
+        var arr_text = text.split(" ");
+        var sensitivecese = document.querySelector("input[name='radio']:checked").value;
+        var keyword = document.getElementById("keyword").value;
+        var count = 0;
+        arr_text.forEach(key => {
+            if (sensitivecase == "no") {
+                keyword = keyword.toLowerCase();
+                key = key.toLowerCase();
+            }
+            if (key.search(keyword) > -1) {
+                count++;
+            }
+        });
+
+        document.getElementById("answer").innerHTML = count;
+    }
+    </script>
+    <center>
+        <h1>Ex2 - Search String Non Sensitive Case</h1>
+        <hr>
+        Text Input: 
+        <textarea id="textarea"></textarea>
+        <br><br>
+        <tr>Sensitive Case : </tr>
+        <input type="radio" name="radio" value="yes" checked>Yes
+        <input type="radio" name="radio" value="no">No
+        <br><br>
+        <tr>Search : </tr>
+        <input type="text" id="keyword">
+        <br><br>
+        <button onclick="search()">search</button>
+        <br><br>
+        <tr>Result for Search : <span id="answer"></span></tr>
+    </center>
+</body>
+</html>
